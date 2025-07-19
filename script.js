@@ -45,6 +45,13 @@ function renderPalette() {
     });
 }
 
+const copyAllBtn = document.getElementById("copy-all");
+copyAllBtn.addEventListener("click", () => {
+    const allHex = swatches.map(s => s.hex).join(", ");
+    navigator.clipboard.writeText(allHex);
+    copyAllBtn.textContent = "Copied!";
+    setTimeout(() => copyAllBtn.textContent = "Copy All", 800);
+});
 // (optional) — to fetch from an API instead:
 // async function fetchPalette() {
 //   const res = await fetch("https://www.colr.org/json/colors/random/5");
